@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="web/css/style.css" rel="stylesheet" type="text/css">
+  <title>Список пользователей</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>ИД</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Дата рождения</th>
+    <th>Пол</th>
+    <th>Номер телефона</th>
+    <th>Права</th>
+    <th>Почта</th>
+    <th>Пароль</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{range .Users}}
+    <tr>
+      <td>{{ .Id}}</td>
+      <td>{{ .FirstName}}</td>
+      <td>{{ .SecondName}}</td>
+      <td>{{ .DateOfBirth}}</td>
+      <td>{{ .Gender}}</td>
+      <td>{{ .NumberPhone}}</td>
+      <td>{{ .Permission}}</td>
+      <td>{{ .Email}}</td>
+      <td>{{ .Password}}</td>
+      <td><a href="/users/edit?idUser={{ .Id}}">Изменить</a></td>
+    </tr>
+  {{end}}
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,55 @@
+// HashPasswd - Хеширует пароль, введенный пользователем.
+func HashPasswd(passwd string) (string, error) {
+	bytes, err := bcrypt.GenerateFromPassword([]byte(passwd), 14)
+	return string(bytes), err
+}
+
+// CheckPasswdHash проверяет хэш пароля и пароль, введенные пользователем, если они совпадают.
+func CheckPasswdHash(passwd, hash string) error {
+	if err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(passwd)); err != nil {
+		return errors.New("неверный пароль")
+	}
+	return nil
+}
+
+// BeforeSave - Хеширует пароль пользователя.
+func (u *User) BeforeSave() error {
+	passwd := strings.TrimSpace(u.Password)
+	hashedPasswd, err := HashPasswd(passwd)
+	if err != nil {
+		return err
+	}
+	u.Password = string(hashedPasswd)
+	return nil
+}
+
+// Prepare -  вводимые пользователем, с любыми пробелами.
+func (u *User) Prepare() {
+	u.FirstName = strings.TrimSpace(u.FirstName)
+}
+
+			Id:          user.Id,
+			FirstName:   user.FirstName,
+			SecondName:  user.SecondName,
+			DateOfBirth: user.DateOfBirth,
+			Gender:      user.Gender,
+			NumberPhone: user.NumberPhone,
+			Permission:  user.Permission,
+			Email:       user.Email,
+			Password:    user.Password,
+
+			.
+      		Scan(
+      			&user.Id,
+      			&user.FirstName,
+      			&user.SecondName,
+      			&dateOfBirth,
+      			&user.Gender,
+      			&user.NumberPhone,
+      			&user.Permission,
+      			&user.Email,
+      			&user.Password,
+      		); err != nil {
+      		if err == sql.ErrNoRows {
+      			return user, fmt.Errorf("совпадений не найдено")
+      		}
