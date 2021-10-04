@@ -1,0 +1,45 @@
+/* Стили поля ввода текста */
+#div-search input {
+  margin-bottom: 5px;
+  width: 330px;
+  height: 20px;
+  padding: 10px 5px;
+  font: bold 15px 'Times New Roman';
+  border: 0;
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+}
+
+#div-search input:focus {
+  outline: 0;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+
+#div-search input::-webkit-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+#div-search input:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+#div-search input:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/*#label-search-site {
+  display: none;
+}*/
+
+#div-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

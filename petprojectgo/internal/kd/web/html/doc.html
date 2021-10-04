@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="web/css/main.css" rel="stylesheet" type="text/css">
+  <link href="web/css/search.css" rel="stylesheet" type="text/css">
+  <title>УФК</title>
+</head>
+<body>
+<div id="div-search">
+  <input type="text" id="search-text" placeholder="Что ищем?">
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Тип</th>
+    <th>Наименование документа</th>
+    <th>Версия файла</th>
+    <th>Примечание</th>
+    <th>Дата изменения</th>
+    <th>Размер документа</th>
+    <th>ФИО автора</th>
+    <th>Наименование редактора</th>
+    <th>Формат документа</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  {{range .DocWithVers}}
+  <tr class="choice"
+      onclick="location.href='/document?idDoc={{ .IdDoc}}&idVer={{ .VersionNumber}}'">
+    <td>
+      <a href="/document?idDoc={{ .IdDoc}}&idVer={{ .VersionNumber}}">
+        <img alt="Документ" src="/web/img/icon_file_pdf.ico">
+      </a>
+    </td>
+    <td>{{ .FileName}}</td>
+    <td>{{ .VersionNumber}}</td>
+    <td>{{ .Note}}</td>
+    <td>{{ .ModifyDate}}</td>
+    <td>{{ .Size}}</td>
+    <td>{{ .AuthorDisplayFld}}</td>
+    <td>{{ .EditorDisplayFld}}</td>
+    <td>{{ .TypeVersionData}}</td>
+  </tr>
+  {{end}}
+
+  </tbody>
+</table>
+<script src="web/js/main.js"></script>
+</body>
+</html>

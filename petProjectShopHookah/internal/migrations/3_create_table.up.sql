@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS demo2 (id int not null);

@@ -1,0 +1,49 @@
+  /* Команда для миграции БД */
+	migrateUpVCmd := &cobra.Command{
+		Use:   "up-on",
+		Short: "Повышение миграции БД на одну версию",
+		Long:  `Команда для повышения миграции БД на одну версию`,
+		Run: func(cmd *cobra.Command, args []string) {
+			l.LogI("Запуск команды \"up-on\"")
+
+			m, err := newMigrateInstance()
+			verMigr, _, _ := m.Version()
+			// Повышаем версию миграции, чтобы знать актуальную версию.
+			verMigr++
+			if err = m.Migrate(verMigr); err != nil {
+				l.LogW(fmt.Sprintf(msg.WarnMigrVersNotExist, verMigr), err.Error())
+			} else {
+				l.LogI(fmt.Sprintf(msg.InfoCurrentVersMigr, verMigr))
+				l.LogI("Команда \"up-on\" выполнена успешно.")
+			}
+		},
+	}
+	migrateCmd.AddCommand(migrateUpVCmd)
+
+  migrateToUpVCmd := &cobra.Command{
+    Use:   "up-on",
+    Short: "Повышение миграции БД до определенной версии",
+    Long:  `Команда повышения миграции БД до определенной версии (up-on version) `,
+    Run: func(cmd *cobra.Command, args []string) {
+      l.LogI("Запуск команды \"up-on version\"")
+
+      m, err := newMigrateInstance()
+      internal.Check(msg.ErrCreateInstanceMigr, err)
+
+      verMigr := 0
+      for _, ver := range args {
+        num, err := strconv.Atoi(ver)
+        internal.Check(msg.ErrConv, err)
+        verMigr = num
+      }
+
+      if err = m.Migrate(uint(verMigr)); err != nil {
+        l.LogW(fmt.Sprintf(msg.WarnMigrVersNotExist, verMigr), err.Error())
+      } else {
+        l.LogI(fmt.Sprintf(msg.InfoCurrentVersMigr, verMigr))
+        l.LogI("Команда \"up-on version\" выполнена успешно.")
+      }
+    },
+  }
+  migrateCmd.AddCommand(migrateToUpVCmd)
+

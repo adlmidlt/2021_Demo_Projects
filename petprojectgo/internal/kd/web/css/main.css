@@ -1,0 +1,127 @@
+body {
+  margin: 20px;
+  padding: 0;
+}
+
+/*.hide {
+  display: none;
+}*/
+
+table {
+  /*Ширина таблицы*/
+  width: 100%;
+  /*Отступ снизу от таблицы*/
+  margin-bottom: 5px;
+  /*Отступы внутри таблицы*/
+  padding: 0;
+  /*Граница таблицы*/
+  border: 1px solid #dddddd;
+  /*Отступы между границами ячеек*/
+  border-spacing: 0;
+  /*Границы ячеек не склеиваются*/
+  border-collapse: separate;
+  /*Радиус скругления углов у таблицы Safari, Chrome*/
+  -webkit-border-radius: 5px;
+  /*Радиус скругления углов у таблицы Mozilla*/
+  -moz-border-radius: 5px;
+  /*Радиус скругления углов у таблицы*/
+  border-radius: 5px;
+  /*Цвет текста в таблице*/
+  color: #666666;
+  /*Размер шрифта*/
+  font-size: 14px;
+  /*Семейство шрифтов*/
+  font-family: "Times New Roman", serif;
+}
+
+table th,
+table td {
+  /*Отступы внутри ячеек*/
+  padding: 10px 10px 9px;
+  /*Межстрочный интервал*/
+  line-height: 18px;
+  /*Выравнивание текста по левому краю*/
+  text-align: left;
+}
+
+table th {
+  /*Отступы внутри ячеек*/
+  padding-top: 9px;
+  /*Установка жирного начертания шрифта*/
+  font-weight: bold;
+  /*Выравнивание по вертикали. Текст находится по середине*/
+  vertical-align: middle;
+  /*Черный цвет в ячейках заголовков таблицы*/
+  color: black;
+}
+
+table td {
+  /*Выравнивание содержимого ячейки по верхнему краю*/
+  vertical-align: top;
+  /*Верхняя граница ячейки*/
+  border-top: 1px solid #ddd;
+}
+
+table th + th,
+table td + td,
+table th + td {
+  /*Стиль для левой границы между двумя ячейками*/
+  border-left: 1px solid #ddd;
+}
+
+table thead {
+  background-color: antiquewhite;
+}
+
+/*Первая строка первая ячейка в заголовке таблицы*/
+table thead tr:first-child th:first-child,
+
+  /*Первая строка первая ячейка в теле таблицы*/
+table tbody tr:first-child td:first-child {
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+  border-radius: 5px 0 0 0;
+}
+
+/*Первая строка последняя ячейка в заголовке таблицы*/
+table thead tr:first-child th:last-child,
+
+  /*Первая строка последняя ячейка в теле таблицы*/
+table tbody tr:first-child td:last-child {
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+  border-radius: 0 5px 0 0;
+}
+
+/*Последняя строка первая ячейка в теле таблицы*/
+table tbody tr:last-child td:first-child {
+  -webkit-border-radius: 0 0 0 5px;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+
+/*Последняя строка последняя ячейка в теле таблицы*/
+table tbody tr:last-child td:last-child {
+  -webkit-border-radius: 0 0 5px 0;
+  -moz-border-radius: 0 0 5px 0;
+  border-radius: 0 0 5px 0;
+}
+
+/*Цвет строки при наведении курсора мыши*/
+table tr:hover {
+  background-color: #decaca;
+}
+
+/*Настройка цвета папок над столбцом "Тип"*/
+/*tr.folder.icon {
+    background-color: beige;
+}
+
+tr.file.icon {
+    background-color: darkseagreen;
+}*/
+
+/*Подсветка нечетных строк в таблице*/
+/*table tbody tr:nth-child(odd) td  {
+    background-color: rgb(246, 244, 244);
+}*/
