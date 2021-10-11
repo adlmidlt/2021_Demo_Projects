@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+</head>
+<body>
+<form method="post">
+    <label for="field-firstName">
+        Имя:
+        <input type="text" id="field-firstName" name="firstName" placeholder="Введите имя">
+    </label><br>
+    <label for="field-secondName">
+        Фамилия:
+        <input type="text" id="field-secondName" name="secondName" placeholder="Введите фамилию">
+    </label><br>
+    <label for="field-dob">
+        Дата рождения:
+        <input type="date" id="field-dob" name="dateOfBirth">
+    </label><br>
+    <label for="field-gender">
+        Пол:
+        <select size="1" id="field-gender" name="gender">
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+            <option value="Не указывать">Не указывать</option>
+        </select>
+    </label><br>
+    <label for="field-numPhone">
+        Номер телефона:
+        <input type="text" id="field-numPhone" name="numberPhone" placeholder="Введите номер телефона">
+    </label><br>
+    <label for="field-permission">
+        Уровень доступа:
+        <input type="number" id="field-permission" name="permission">
+    </label><br>
+    <label for="field-email">
+        Почта:
+        <input type="text" id="field-email" name="email" placeholder="Введите почту">
+    </label><br>
+    <label for="field-passwd">
+        Пароль:
+        <input type="text" id="field-passwd" name="password" placeholder="Введите пароль">
+    </label><br>
+        <input type="submit" value="Добавить пользователя">
+</form>
+</body>
+</html>

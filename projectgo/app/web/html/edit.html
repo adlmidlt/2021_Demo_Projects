@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование пользователя</title>
+</head>
+<body>
+
+<form method="post">
+
+    <label for="field-firstName">
+        Имя:
+        <input id="field-firstName" name="firstName" type="text" value="{{ .FirstName}}">
+    </label><br>
+    <label for="field-secondName">
+        Фамилия:
+        <input id="field-secondName" name="secondName" type="text" value="{{ .SecondName}}">
+    </label><br>
+    <label for="field-dob">
+        Дата рождения:
+        <input id="field-dob" name="dateOfBirth" type="date" value="{{ .DateOfBirth}}">
+    </label><br>
+    <label for="field-numPhone">
+        Номер телефона:
+        <input id="field-numPhone" name="numberPhone" type="text" value="{{ .NumberPhone}}">
+    </label><br>
+    <label for="field-permission">
+        Уровень доступа:
+        <input id="field-permission" name="permission" type="number" value="{{ .Permission}}">
+    </label><br>
+    <label for="field-email">
+        Почта:
+        <input id="field-email" name="email" type="text" value="{{ .Email}}">
+    </label><br>
+    <label for="field-passwd">
+        Пароль:
+        <input id="field-passwd" name="password" type="text" value="{{ .Password}}">
+    </label><br>
+    <input type="submit" value="Редактировать">
+</form>
+
+</body>
+</html>

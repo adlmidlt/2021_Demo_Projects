@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройки пользователя</title>
+</head>
+<body>
+<h2>Список пользователей</h2>
+<a href="/users/add">Добавить</a>
+<form method="post">
+    <label for="field-firstName">
+        Имя:
+        <input type="text" id="field-firstName" name="firstName" placeholder="Введите имя">
+    </label><br>
+    <label for="field-secondName">
+        Фамилия:
+        <input type="text" id="field-secondName" name="secondName" placeholder="Введите фамилию">
+    </label><br>
+    <label for="field-dob">
+        Дата рождения:
+        <input type="date" id="field-dob" name="dateOfBirth">
+    </label><br>
+    <label for="field-gender">
+        Пол:
+        <select size="1" id="field-gender" name="gender">
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+            <option value="Не указывать">Не указывать</option>
+        </select>
+    </label><br>
+    <label for="field-numPhone">
+        Номер телефона:
+        <input type="text" id="field-numPhone" name="numberPhone" placeholder="Введите номер телефона">
+    </label><br>
+    <label for="field-permission">
+        Уровень доступа:
+        <input type="number" id="field-permission" name="permission">
+    </label><br>
+    <label for="field-email">
+        Почта:
+        <input type="text" id="field-email" name="email" placeholder="Введите почту">
+    </label><br>
+    <label for="field-passwd">
+        Пароль:
+        <input type="text" id="field-passwd" name="password" placeholder="Введите пароль">
+    </label><br>
+    <input type="submit" value="Добавить пользователя">
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>ИД</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Дата рождения</th>
+        <th>Пол</th>
+        <th>Номер телефона</th>
+        <th>Права</th>
+        <th>Почта</th>
+        <th>Пароль</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range .Users}}
+    <tr>
+        <td>{{ .Id}}</td>
+        <td>{{ .FirstName}}</td>
+        <td>{{ .SecondName}}</td>
+        <td>{{ .DateOfBirth.Format "02.01.2006"}}</td>
+        <td>{{ .Gender}}</td>
+        <td>{{ .NumberPhone}}</td>
+        <td>{{ .Permission}}</td>
+        <td>{{ .Email}}</td>
+        <td>{{ .Password}}</td>
+        <td><a href="/users/edit?id={{ .Id}}">Редактировать</a></td>
+        <td><a href="/users/delete?id={{ .Id}}">Удалить</a></td>
+    </tr>
+    {{ end}}
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
