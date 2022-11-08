@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>УФК</title>
+  <link href="web/css/main.css" rel="stylesheet" type="text/css">
+  <link href="web/css/search.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="div-search">
+  <label for="search-text"></label>
+  <input type="text" id="search-text" placeholder="Что ищем?">
+</div>
+<table>
+  <thead>
+  <tr>
+    <th>Тип</th>
+    <th>Наименование</th>
+    <th>Дата создания</th>
+    <th>Дата изменения</th>
+    <th>Номер автора</th>
+    <th>Подписано</th>
+    <th>Тип подписи</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  {{range .Folders}}
+  <tr class="choice" onclick="window.location.href='/folder?idFolder={{ .ObjectID}}'">
+    <td>
+      <a href="/folder?idFolder={{ .ObjectID}}">
+        <img alt="Папка" src="/web/img/icon_folder_yellow.ico">
+      </a>
+    </td>
+    <td>{{ .ObjectName}}</td>
+    <td>{{ .Created}}</td>
+    <td>{{ .Modified}}</td>
+    <td>{{ .AuthorID}}</td>
+    <td></td>
+    <td></td>
+  </tr>
+  {{end}}
+
+  {{range .Docs}}
+  <tr class="choice" onclick="location.href='/document?idDoc={{ .ObjectID}}'">
+    <td><a href="/document?idDoc={{ .ObjectID}}">
+      <img alt="Документ" src="/web/img/icon_file_pdf.ico">
+    </a>
+    </td>
+    <td>{{ .ObjectName}}</td>
+    <td>{{ .Created}}</td>
+    <td>{{ .Modified}}</td>
+    <td>{{ .AuthorID}}</td>
+    <td>{{ .Signed}}</td>
+    <td>{{ .SignatureType}}</td>
+  </tr>
+  {{end}}
+
+  </tbody>
+</table>
+<script src="web/js/main.js"></script>
+</body>
+</html>
